@@ -1,7 +1,7 @@
 <?php
 
 $service = trim(strtolower($_POST['service'] ?? ''));
-$salt = "enter_your_key_here";
+$salt = getenv('HASH_SALT');
 
 if (isset($_POST['submit'])) {
     $raw = $service . $salt;
