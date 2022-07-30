@@ -168,9 +168,7 @@ if (isset($_POST['submit']) && !empty($service)) {
 
         <script>
             function onResultClick(el) {
-                el.focus();
-                el.select();
-                document.execCommand("copy");
+                navigator.clipboard.writeText(el.value);
             }
 
             (function() {
