@@ -1,12 +1,13 @@
 <?php
 
-$service = trim(strtolower($_POST['service'] ?? ''));
-$salt = getenv('HASH_SALT');
+$config = require 'config.php';
 
-if (isset($_POST['submit'])) {
-    $raw = $service . $salt;
-    $hash = hash('sha256', $raw);
-    $mail = substr($hash, 0, 16);
+$service = trim(strtolower($_POST['service'] ?? ''));
+
+if (isset($_POST['submit']) && !empty($_POST['service'])) {
+    $raw = $service . $config['hash'];
+    $hash = substr(hash('sha256', $raw), 0, $config['length']);
+    $mail = "{$hash}@{$config['domain']}";
 }
 ?>
 
@@ -147,13 +148,13 @@ if (isset($_POST['submit'])) {
 
             <form method="POST">
                 <input type="text" name="service" placeholder="Service" class="form-input" value="<?= $service ?>" autofocus />
-                <input type="submit" name="submit" value="@domain.tld" class="form-button" />
+                <input type="submit" name="submit" value="@<?= $config['domain'] ?>>" class="form-button" />
             </form>
 
-            <?php if(isset($_POST['submit']) && ($service != '')): ?>
+            <?php if(isset($mail)): ?>
                 <p class="result">
                     <label for="mail">E-Mail</label>
-                    <input type="text" name="mail" value="<?= $mail ?>@domain.tld" class="result-text" onClick="onResultClick(this)" />
+                    <input type="text" name="mail" value="<?= $mail ?>" class="result-text" onClick="onResultClick(this)" />
 
                     <label for="servicename">Service</label>
                     <input type="text" name="service-name" value="<?= $service ?>" onClick="onResultClick(this)" class="result-text" />
