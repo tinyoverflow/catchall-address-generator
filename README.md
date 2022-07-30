@@ -19,9 +19,11 @@ some environment variables to work properly.
 
 ### Environment variables
 
-| Variable      | Type   | Required | Description                                                        |
-|---------------|--------|----------|--------------------------------------------------------------------|
-| HASH_SALT     | string | Yes      | A random string that will be used as a salt for the hash function. |
+| Variable    | Type    | Required | Default      | Description                                                        |
+|-------------|---------|----------|--------------|--------------------------------------------------------------------|
+| HASH_SALT   | string  | Yes      | empty string | A random string that will be used as a salt for the hash function. |
+| MAIL_DOMAIN | string  | Yes      | example.com  | Domain without @-symbol for which the address will be generated.   |
+| MAIL_LENGTH | integer | No       | 16           | Length of the part before the @-symbol.                            |
 
 ### Start Docker container
 
@@ -32,5 +34,7 @@ $ docker pull ghcr.io/tinyoverflow/catchall-address-generator:latest
 # Run the docker container.
 $ docker run --name catchall-address-generator --detach \
     -e "HASH_SALT=enter_your_key_here" \
+    -e "MAIL_DOMAIN=domain.tld" \
+    -e "MAIL_LENGTH=8" \
     ghcr.io/tinyoverflow/catchall-address-generator:latest
 ```
