@@ -39,7 +39,7 @@ if (isset($_POST['submit']) && !empty($service)) {
                 background-color: white;
                 border-radius: .25rem;
                 padding: 15px;
-                width: 350px;
+                min-width: 350px;
                 box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             }
 
@@ -138,6 +138,10 @@ if (isset($_POST['submit']) && !empty($service)) {
                 border-radius: 0.25rem;
                 background-color: rgba(0, 0, 0, 0.2);
             }
+
+            .hidden {
+                display: none;
+            }
         </style>
     </head>
 
@@ -146,9 +150,9 @@ if (isset($_POST['submit']) && !empty($service)) {
             <h1>Catch-All Address Generator</h1>
 
             <form method="POST">
-				<label for="service">Service Name</label>
+				<label for="service" class="hidden">Service</label>
                 <input type="text" name="service" id="service" placeholder="Service" class="form-input" value="<?= $service ?>" autofocus />
-                <input type="submit" name="submit" value="@<?= $config['domain'] ?>>" class="form-button" />
+                <input type="submit" name="submit" value="@<?= $config['domain'] ?>" class="form-button" />
             </form>
 
             <?php if(isset($mail)): ?>
