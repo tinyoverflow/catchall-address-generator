@@ -97,9 +97,8 @@ if (isset($_POST['submit']) && !empty($_POST['service'])) {
             .form-input {
                 flex: 1;
                 display: block;
-                border: none;
                 background-color: transparent;
-                border: 2px solid #f0f0fb; 
+                border: 2px solid #f0f0fb;
                 border-top-left-radius: 0.25rem;
                 border-bottom-left-radius: 0.25rem;
                 padding: 5px 10px;
