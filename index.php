@@ -158,16 +158,17 @@ if (isset($_POST['submit']) && !empty($service)) {
             <?php if(isset($mail)): ?>
                 <p class="result">
                     <label for="mail">E-Mail</label>
-                    <input type="text" name="mail" id="mail" value="<?= $mail ?>" class="result-text" onClick="onResultClick(this)" />
+                    <input type="text" name="mail" id="mail" value="<?= $mail ?>" class="result-text" onClick="onResultClick(this)" readonly />
 
                     <label for="service">Service</label>
-                    <input type="text" name="service" id="service" value="<?= $service ?>" onClick="onResultClick(this)" class="result-text" />
+                    <input type="text" name="service" id="service" value="<?= $service ?>" onClick="onResultClick(this)" class="result-text" readonly />
                 </p>
             <?php endif; ?>
         </div>
 
         <script>
             function onResultClick(el) {
+                el.select()
                 navigator.clipboard.writeText(el.value);
             }
 
