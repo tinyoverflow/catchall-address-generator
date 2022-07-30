@@ -4,7 +4,7 @@ $config = require 'config.php';
 
 $service = trim(strtolower($_POST['service'] ?? ''));
 
-if (isset($_POST['submit']) && !empty($_POST['service'])) {
+if (isset($_POST['submit']) && !empty($service)) {
     $raw = $service . $config['hash'];
     $hash = substr(hash('sha256', $raw), 0, $config['length']);
     $mail = "{$hash}@{$config['domain']}";
