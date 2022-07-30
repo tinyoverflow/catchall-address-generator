@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'salt'   => getenv('HASH_SALT'),
-    'domain' => getenv('MAIL_DOMAIN'),
-    'length' => getenv('MAIL_LENGTH') ?? 16,
+    'salt'   => getenv('HASH_SALT') ?: '',
+    'domain' => getenv('MAIL_DOMAIN') ?: 'example.tld',
+    'length' => getenv('MAIL_LENGTH') ?: 16,
 ];
