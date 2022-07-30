@@ -144,7 +144,7 @@ if (isset($_POST['submit']) && !empty($_POST['service'])) {
 
     <body>
         <div class="wrapper">
-            <h1>Mail Address Generator</h1>
+            <h1>Catch-All Address Generator</h1>
 
             <form method="POST">
                 <input type="text" name="service" placeholder="Service" class="form-input" value="<?= $service ?>" autofocus />
