@@ -7,6 +7,8 @@
 This tool generates email addresses for specific services with your domain name. It is especially useful if you want one
 email address per service which cannot be guessed and can be recreated easily, if necessary.
 
+![Project Screenshot](/../docs/screenshots/screenshot_1.png?raw=true)
+
 ## Usage
 
 This service is available as a Docker image, so you can get up and running in just a minute. The image is available
