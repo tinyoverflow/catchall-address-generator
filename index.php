@@ -146,17 +146,18 @@ if (isset($_POST['submit']) && !empty($_POST['service'])) {
             <h1>Catch-All Address Generator</h1>
 
             <form method="POST">
-                <input type="text" name="service" placeholder="Service" class="form-input" value="<?= $service ?>" autofocus />
+				<label for="service">Service Name</label>
+                <input type="text" name="service" id="service" placeholder="Service" class="form-input" value="<?= $service ?>" autofocus />
                 <input type="submit" name="submit" value="@<?= $config['domain'] ?>>" class="form-button" />
             </form>
 
             <?php if(isset($mail)): ?>
                 <p class="result">
                     <label for="mail">E-Mail</label>
-                    <input type="text" name="mail" value="<?= $mail ?>" class="result-text" onClick="onResultClick(this)" />
+                    <input type="text" name="mail" id="mail" value="<?= $mail ?>" class="result-text" onClick="onResultClick(this)" />
 
-                    <label for="servicename">Service</label>
-                    <input type="text" name="service-name" value="<?= $service ?>" onClick="onResultClick(this)" class="result-text" />
+                    <label for="service">Service</label>
+                    <input type="text" name="service" id="service" value="<?= $service ?>" onClick="onResultClick(this)" class="result-text" />
                 </p>
             <?php endif; ?>
         </div>
